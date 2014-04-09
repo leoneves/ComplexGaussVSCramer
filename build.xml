@@ -1,0 +1,35 @@
+﻿<?xml version="1.0"?>
+<project name="MetodoGaussVSCramer" default="init" basedir=".">
+  <!-- Seta as variáveis que serão usadas mais tarde -->
+  <!-- O valor de um property é acessado via ${} -->
+  <property name="src" location="src" />
+  <property name="build" location="build" />
+  
+  <!-- Deleta os diretóios dist e build -->
+  <target name="clean">
+    <delete dir="${build}" />
+  </target>
+
+  <!-- Cria diretório de build e dist -->
+  <target name="makedir">
+    <mkdir dir="${build}" />
+  </target>
+ 
+  <!-- compila o código java (including classpath) -->
+  <target name="compile" depends="clean, makedir">
+    <javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+		<classpath>
+			<pathelement path="${classpath}"/>
+		</classpath>
+	</javac>
+  </target>
+  
+  <!-- target padrão(init), também executa aplicativo através do .class  -->
+  <target name="init" depends="compile">
+    <description>Main target</description>
+	<java fork="true" failonerror="yes" classname="Main" classpath="build">  
+		<arg line=""/>
+	</java>
+  </target>
+
+</project> 
