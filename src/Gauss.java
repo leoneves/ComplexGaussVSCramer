@@ -34,7 +34,7 @@ public class Gauss implements Metodo{
 			}
 			 contadorComparacoes++;
 		}
-		System.out.println("Comparou: " + contadorComparacoes + " vezes");
+		System.out.println("Gauss comparou: " + contadorComparacoes + " vezes\n");
 
 		// Resolve a matriz b[] com substituição backward. Os elementos da
 		// matriz a[][] foram previamente normalizados para 1.

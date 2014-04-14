@@ -8,7 +8,7 @@ public class CriaJanela {
 	private static JScrollPane painelRolagem;
 
 	public CriaJanela(){
-		frame = new JFrame("MetodoJacobi");
+		frame = new JFrame("Gauss Vs Cramer");
 		frame.setSize(600, 500);
 		frame.setLocationRelativeTo(null);
 		Container content = frame.getContentPane();

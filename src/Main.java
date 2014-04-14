@@ -4,24 +4,33 @@ public class Main {
 
 	public static void main(String[] args) {
 		double a[][] = {
-				{0, -1, 1 },
-				{-1, 3, 0  },
-				{2, 0, 6 },
+				{1,0,0,0,0,0},
+				{0,1,0,0,0,0},
+				{0,0,1,0,0,0},
+				{0,0,0,1,0,0},
+				{0,0,0,0,1,0},
+				{0,0,0,0,0,1}
 		};
 		// Matriz solução
-		double b[] = { 2, 5, 20};
-		
-		
+		double b[] = {1,1,1,1,1,1};
+			
 		CriaJanela frame = new CriaJanela();
-		Metodo metodo = new Gauss();
-		imprimirResultados(metodo.aplicaMetodo(a,b));
+		exibeTexto.append("Método Cramer:" + "\r\n");
+		Metodo cramer = new Cramer();
+		imprimirResultados(cramer.aplicaMetodo(a,b));
 		CriaJanela.getJt().setText(exibeTexto.toString());
+		
+		exibeTexto.append("\n\nMétodo Gauss:" + "\r\n");
+		Metodo gauss = new Gauss();
+		imprimirResultados(gauss.aplicaMetodo(a,b));
+		CriaJanela.getJt().setText(exibeTexto.toString());
+		
 		CriaJanela.getFrame().setVisible(true);	
 	}//fim mail
 	
 	public static void imprimirResultados(double x[]) {
 		exibeTexto.append("Incógnitas:" + "\r\n");
-		for (int i = 0; i < x.length; ++i) {
+		for (int i = 0; i < x.length; i++) {
 			exibeTexto.append("\n Incógnita "+ (i+1) +" valor: " + x[i]);
 		}
 	}
